@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://matthewmarkgraaff.com',
   pathPrefix: '/',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Matthew Markgraaff',
+  subtitle: 'My blog',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -25,19 +25,19 @@ module.exports = {
     }
   ],
   author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    name: 'Matthew Markgraaff',
+    photo: '/photo.jpeg',
+    bio: "Hi, I'm Matt. I write code to help people and sometimes, just because it's fun. I'm really into fitness, music and late night gaming sessions.",
     contacts: {
-      email: '',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
+      email: 'matt@matthewmarkgraaff.com',
+      facebook: '',
+      telegram: '',
+      twitter: 'https://twitter.com/MattMarkG',
+      github: 'https://github.com/MatthewMarkgraaff',
       rss: '',
       vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://www.linkedin.com/in/matthew-markgraaff/',
+      instagram: '',
       line: '',
       gitlab: '',
       weibo: ''
