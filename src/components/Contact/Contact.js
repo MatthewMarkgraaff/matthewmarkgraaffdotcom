@@ -4,21 +4,29 @@ import styles from './Contact.module.scss';
 import Banner from '../Banner';
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false)
   const [contact, setContact] = useState({
     name: '',
     email: '',
     message: ''
   })
-  const [submitted, setSubmitted] = useState(false)
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-
-    setSubmitted(true)
-    setContact({
-      name: '',
-      email: '',
-      message: ''
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: contact,
+    }).then(response => {
+      setSubmitted(true)
+      setContact({
+        name: '',
+        email: '',
+        message: ''
+      })
+    })
+    .catch(error => {
+      console.log(`error in submiting the form data: ${error}`)
     })
   }
 
