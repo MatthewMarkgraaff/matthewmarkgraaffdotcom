@@ -5,10 +5,12 @@ slug: /posts/my-first-post/
 draft: false
 date: 2019-11-05T22:40:32.169Z
 description: My first blog post
-category: Typography
+category: "Typography"
+socialImage: ""
 tags:
-  - Writing
+  - "Writing"
 ---
+
 ## I'm new to this. 
 
 I've long admired those who are able to so eloquently and consistently post their thoughts and ideas on their own slice of the internet we've affectionately titled a 'blog'. 
