@@ -12,21 +12,11 @@ const Contact = () => {
   })
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    await fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: contact,
-    }).then(response => {
-      setSubmitted(true)
-      setContact({
-        name: '',
-        email: '',
-        message: ''
-      })
-    })
-    .catch(error => {
-      console.log(`error in submiting the form data: ${error}`)
+    setSubmitted(true)
+    setContact({
+      name: '',
+      email: '',
+      message: ''
     })
   }
 
