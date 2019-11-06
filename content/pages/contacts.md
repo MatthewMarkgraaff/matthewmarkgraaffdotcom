@@ -1,6 +1,6 @@
 ---
-template: page
-title: Got a project to discuss? Want to grab a coffee?
+template: contact 
+title: Get in touch
 slug: pages/contacts
 draft: false
 ---
