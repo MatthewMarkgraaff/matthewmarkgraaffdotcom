@@ -5,7 +5,7 @@ slug: /posts/my-first-post/
 draft: false
 date: 2019-11-05T22:40:32.169Z
 description: My first blog post
-category: "Typography"
+category: "Ramblings"
 socialImage: ""
 tags:
   - "Writing"
