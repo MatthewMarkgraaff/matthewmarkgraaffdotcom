@@ -27,7 +27,7 @@ module.exports = {
   author: {
     name: 'Matthew Markgraaff',
     photo: '/photo.jpeg',
-    bio: "Hi, I'm Matt. I write code to help people and sometimes, just because it's fun. I'm really into fitness, music and late night gaming sessions.",
+    bio: "Hi, I'm Matt. I write code to help people in their daily lives and often, just because it's fun. I'm really into keeping fit, making music and late night gaming sessions.",
     contacts: {
       email: 'matt@matthewmarkgraaff.com',
       facebook: '',
