@@ -4,7 +4,7 @@ title: My first blog post
 slug: /posts/my-first-post/
 draft: false
 date: 2019-11-05T22:40:32.169Z
-description: My first blog post
+description: The humble beginnings of matthewmarkgraaff dot com
 category: "Ramblings"
 socialImage: ""
 tags:
