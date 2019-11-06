@@ -4,12 +4,22 @@ import styles from './Contact.module.scss';
 import Banner from '../Banner';
 
 const Contact = () => {
+  const [contact, setContact] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
   const [submitted, setSubmitted] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
 
     setSubmitted(true)
+    setContact({
+      name: '',
+      email: '',
+      message: ''
+    })
   }
 
   return (
@@ -25,15 +35,15 @@ const Contact = () => {
         <input type="hidden" name="bot-field" />
         <label>
           Name
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" value={contact.name} onChange={(e)=>setContact({ ...contact, name: e.target.value })} />
         </label>
         <label>
           Email
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" value={contact.email} onChange={(e)=>setContact({ ...contact, email: e.target.value })} />
         </label>
         <label>
           Message
-          <textarea name="message" id="message" rows="5" />
+          <textarea name="message" id="message" rows="5" value={contact.message} onChange={(e)=>setContact({...contact, message: e.target.value })} />
         </label>
         <button type="submit">Submit</button>
       </form>
