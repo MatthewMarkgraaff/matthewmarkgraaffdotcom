@@ -12,8 +12,8 @@ After graduating from the University of Pretoria in 2015, I started my career in
 
 You can read about my journey into tech [here](https://www.offerzen.com/blog/taking-the-leap-business-analyst-turns-developer).
 
-I've been fortunate to work for some of the best software development companies in South Africa. I'm recently self employed, spending most of my time building web/mobile applications and doing some consulting in between.
+I've been fortunate to work for some of the best software development companies in South Africa and with some of the super talented engineers. I'm recently self employed, spending most of my time building web & mobile applications for some great clients and I also work on some of my own products.
 
 I co-founded Bearing Gifts, a website that aims to help people find great gift ideas for friends and family. You can check it out [here](https://bearinggifts.com.au).
 
-I do most of my engineering in Ruby + Javascript : Typescript. I really dig React & Rails. I'd like to start making time to give back to the open source community soon.
+I do most of my engineering in Ruby + Javascript : Typescript. I really dig React & Rails. It's a goal of mine to start making time to give back to the open source community.
