@@ -1,5 +1,4 @@
----
-template: post
+--- template: post
 title: My first blog post
 slug: /posts/my-first-post/
 draft: false
@@ -21,4 +20,4 @@ This site will become my scratchpad, a place for me to capture my thoughts on so
 
 I'm stoked to have this space and to have made this first step. I hope you check back soon for future posts.
 
-P.S A newsletter/subscription feature is next on the blog backlog
+P.S A newsletter/subscription feature is coming soon 
