@@ -5,7 +5,7 @@ module.exports = {
   pathPrefix: '/',
   title: 'Matthew Markgraaff',
   subtitle: 'My blog',
-  copyright: '© All rights reserved.',
+  copyright: '',
   disqusShortname: '',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-151869099-1',
