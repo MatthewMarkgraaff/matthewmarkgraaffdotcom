@@ -1,4 +1,5 @@
---- template: post
+---
+template: post
 title: My first blog post
 slug: /posts/my-first-post/
 draft: false
