@@ -1,11 +1,11 @@
 ---
 template: post
-title: 'Looking ahead '
-slug: looking-ahead
-draft: true
+title: 'Looking ahead'
+slug: /posts/looking-ahead 
+draft: false 
 date: 2020-01-30T17:45:32.477Z
-description: Looking back on 2019 and my goals for the new year.
-category: Life
+description: Looking back on 2019 and my goals for the new year
+category: "Ramblings" 
 tags:
   - self-improvement
   - introspective
