@@ -33,21 +33,21 @@ Of course, WebRTC is not the only technology to build a video chat app on but it
 
 I learnt that although WebRTC enables peer to peer communication, WebRTC in the _real world_ still needs servers for peers to both discover each other and also to cope with NATs and firewalls.
 
-So what is signaling? Signaling provides means for clients to set up their session and exchange required network data in order to facilitate the real time communication between peers.
+So what is [signaling](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Signaling_and_video_calling)? Signaling provides means for clients to set up their session and exchange required network data in order to facilitate the real time communication between peers.
 
 WebRTC itself provides no implementation / API for this and it must be implemented at an application level. This gives developers the freedom to write their own signalling implementation on whichever stack / protocol they decide is best for their application.
 
-Some implementations include the use of long polling techniques and web sockets. I decided use SocketIO in this example because I have some past experience implementing SocketIO servers.
+Some implementations include the use of long polling techniques and web sockets. I decided use [SocketIO](https://socket.io/) in this example because I have some past experience implementing SocketIO servers.
 
 **Where does Svelte fit into this?**
 
 I figured a video conferencing client would require a fair amount of Javascript to wire up the UI and managing state in a multi party video call could become tricky in vanilla JS. So I starting thinking about Javascript frameworks. 
 
-Svelte is a framework I've been meaning to try and a web based video chat client felt like the perfect use case. So I decided to give it a go. Svelte introduces a new way of thinking about Javascript frameworks. Instead of shipping a (relatively) heavy runtime dependency to the browser (React, Angular, Vue) Svelte introduced a compile step, that packages only the parts of the framework required by the application at runtime. Meaning, significantly smaller bundle sizes while still providing a great developer experience.
+[Svelte](https://svelte.dev/) is a framework I've been meaning to try and a web based video chat client felt like the perfect use case. So I decided to give it a go. Svelte introduces a new way of thinking about Javascript frameworks. Instead of shipping a (relatively) heavy runtime dependency to the browser (React, Angular, Vue) Svelte introduced a compile step, that packages only the parts of the framework required by the application at runtime. Meaning, significantly smaller bundle sizes while still providing a great developer experience.
 
 Anyway, enough background. Here's some of the steps I took and some important code snippets from v1 of the video chat app:
 
-First step was to setup a basic server to serve my Svelte webclient, landing page and SocketIO signalling implementation. I'm a long time NodeJS user, so quickly spun up a basic Koa server. 
+First step was to setup a basic server to serve my Svelte webclient, landing page and SocketIO signalling implementation. I'm a long time NodeJS user, so quickly spun up a basic [Koa](https://koajs.com/) server. 
 
 I forked the popular <https://github.com/sveltejs/template> and mounted the Svelte client app using koa-mount. This meant I was now serving the compiled svelte application from my Koa server:
 
@@ -91,13 +91,13 @@ First, I needed to ask permission to use the user's video and audio devices. Bot
 
 **RTCPeerConnection**
 
-To create a connection between peers, WebRTC exposes an RTCPeerConnection API. This API is used to gather information on local media and network availability.  Once RTCPeerConnection has what it needs, it is passed on to the peer (other client) through the signaling server.
+To create a connection between peers, WebRTC exposes an [RTCPeerConnection](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection) API. This API is used to gather information on local media and network availability.  Once RTCPeerConnection has what it needs, it is passed on to the peer (other client) through the signaling server.
 
 Setting up a call requires three steps:
 
 1. Create an RTCPeerConnection on each side of the call
-2. Gather ICE candidate information. This represents potential connection addresses and network details
-3. Get and share local / remote descriptions in SDP format.
+2. Gather [ICE](https://tools.ietf.org/id/draft-ietf-ice-rfc5245bis-14.html) candidate information. This represents potential connection addresses and network details
+3. Get and share local / remote descriptions in [SDP](https://tools.ietf.org/html/rfc4566) format.
 
 I created the peer connection objects and attach state change listeners like so: 
 
@@ -370,7 +370,7 @@ Voila! A working (super basic) video chat application in the browser!
 ![](/media/videochat.png)
 Quick catchup chat with my good mate, Nala.
 
-I've deployed this version to Heroku, so head over to https://cryptic-bayou-97042.herokuapp.com/ and give it a try! Just open the call url on another device or copy and paste into another tab to try it out!
+I've deployed this version to Heroku, so click [here](https://cryptic-bayou-97042.herokuapp.com/) to give it a try! Just open the call url on another device or copy and paste into another tab to try it out!
 
 I find peer to peer communications especially fascinating after this dive into WebRTC and will no doubt be continuing my journey down the rabbit hole! 
 
