@@ -4,7 +4,7 @@ title: >-
   Building a video chat application from scratch. With WebRTC, Socket IO, NodeJS
   & Svelte.
 slug: building-video-chat-app
-draft: true
+draft: false
 date: 2020-04-23T06:02:19.752Z
 description: >-
   I've been itching to learn some new tech and build something exciting for a
