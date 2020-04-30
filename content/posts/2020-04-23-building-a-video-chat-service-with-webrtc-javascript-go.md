@@ -1,6 +1,8 @@
 ---
 template: post
-title: 'Building a video chat service with WebRTC, Javascript & Go'
+title: >-
+  Building a video chat application from scratch. With WebRTC, Socket IO, NodeJS
+  & Svelte.
 slug: building-video-chat-app
 draft: true
 date: 2020-04-23T06:02:19.752Z
@@ -12,8 +14,6 @@ category: code
 tags:
   - code
 ---
-# Post 01 - Building a video chat application from scratch. With WebRTC, Socket IO, NodeJS & Svelte.
-
 _Part one of many._
 
 I was recently on a group Zoom call with some people from the United States. Even with my usually decent home wifi connection, I had a horrible experience with frequent disconnects, audio packet loss and choppy video streaming. It got me thinking about how Zoom and similar services are architected. I figured there's no better way to learn than to just jump right down the rabbit hole and build my own video chat app.
@@ -27,7 +27,7 @@ Of course, WebRTC is not the only technology to build a video chat app on but it
 * Open source
 * Runs in the browser
 * Vibrant community
-* Enables peer to peer media communications (potentially no middle man and totally private video calls)
+* Enables peer to peer media communications
 
 **Signaling**
 
@@ -41,7 +41,7 @@ Some implementations include the use of long polling techniques and web sockets.
 
 **Where does Svelte fit into this?**
 
-I figured a video conferencing client would require a fair amount of Javascript to wire up the UI and managing state in a multi party video call, could become tricky in vanilla JS. So I starting thinking about Javascript frameworks. 
+I figured a video conferencing client would require a fair amount of Javascript to wire up the UI and managing state in a multi party video call could become tricky in vanilla JS. So I starting thinking about Javascript frameworks. 
 
 Svelte is a framework I've been meaning to try and a web based video chat client felt like the perfect use case. So I decided to give it a go. Svelte introduces a new way of thinking about Javascript frameworks. Instead of shipping a (relatively) heavy runtime dependency to the browser (React, Angular, Vue) Svelte introduced a compile step, that packages only the parts of the framework required by the application at runtime. Meaning, significantly smaller bundle sizes while still providing a great developer experience.
 
@@ -267,9 +267,53 @@ export default {
 };
 ```
 
+And a `Controls` component to handle the muting of video / audio and binding the value to global state:
+
+```
+<script>
+  import ActionButton from "./ActionButton.svelte";
+  import callerState from "../../store/callerState";
+
+  let audio = true;
+  let video = true;
+
+  callerState.audio.subscribe(value => audio = value);
+  callerState.video.subscribe(value => video = value);
+</script>
+
+<main>
+  <div class="controls">
+    <ActionButton
+      onClick={()=>callerState.setAudio(!audio)}
+      onState={audio}
+      onIcon="mic.svg"
+      offIcon="mic-off.svg" />
+    <ActionButton
+      onIcon="phone.svg" />
+    <ActionButton
+      onClick={()=>callerState.setVideo(!video)}
+      onState={video}
+      onIcon="video.svg"
+      offIcon="video-off.svg" />
+  </div>
+</main>
+
+<style lang="scss">
+  .controls {
+    position: fixed;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 101;
+  }
+</style>
+```
+
 **Signaling server implementation**
 
-Here is the server side SocketIO implementation:
+On the server side, I needed to listen for inbound connections and pass messages between peers. Here is the server side SocketIO implementation:
 
 ```
 const socketActions = {
@@ -317,17 +361,22 @@ const mountSocketIo = (ioInstance) => {
 module.exports = mountSocketIo;
 ```
 
-Here's the basic landing page I put together:
+I put a basic landing page together, rendered on the server using `pug js` templates and the `bulma.io` css framework:
 
 ![landing page](/media/screenshot-2020-04-29-at-22.36.34.png)
 
 Voila! A working (super basic) video chat application in the browser!
 
 ![](/media/videochat.png)
+Quick catchup chat with my good mate, Nala.
 
-I've deployed this version to Heroku, so head over to https://cryptic-bayou-97042.herokuapp.com/ and give it a try!
+I've deployed this version to Heroku, so head over to https://cryptic-bayou-97042.herokuapp.com/ and give it a try! Just open the call url on another device or copy and paste into another tab to try it out!
 
-I find peer to peer communications especially facinating after this dive into WebRTC and will no doubt be continuing my journey down the rabbit hole! 
+I find peer to peer communications especially fascinating after this dive into WebRTC and will no doubt be continuing my journey down the rabbit hole! 
 
 All of the code is available here: <https://github.com/MatthewMarkgraaff/vidchat>
-Bear in mind, the code is still a bit of a mess (the entire svelte build has even been deployed to the repo) as I'm still in the tinkering phase of the project. I'm looking forward to adding a STUN/TURN server implementation and possibly looking into multi caller support. I'll document my progress and add links to future posts here.
+Bear in mind, the code is still a bit of a mess (the entire svelte build has even been deployed to the repo) as I'm still in the tinkering phase of the project. 
+
+I'm looking forward to adding a STUN/TURN server implementation and possibly implementing multi caller capability. I'll document my progress and add links to future posts here.
+
+If you'd like to tinker on this with me, reach out and let's code together!
