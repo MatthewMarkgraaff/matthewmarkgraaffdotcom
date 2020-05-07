@@ -4,7 +4,7 @@ title: About me
 slug: pages/about
 draft: false
 ---
-I'm a software engineer born in Manchester, England and now living in Johannesburg, South Africa.
+I'm a software engineer living in Johannesburg, South Africa.
 
 ![](/media/matt.jpeg)
 
