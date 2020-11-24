@@ -6,9 +6,11 @@ draft: false
 date: 2019-11-05T22:40:32.169Z
 description: The humble beginnings of matthewmarkgraaff dot com
 category: Ramblings
+socialImage: ""
 tags:
   - Writing
 ---
+
 ## I'm new to this.
 
 I've long admired those who are able to consistently post their thoughts and ideas on their own slices of the internet. 
